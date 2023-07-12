@@ -8,7 +8,7 @@ class PostImagesController < ApplicationController
     @post_new_image = PostImage.new(post_image_params)
     @post_new_image.user_id = current_user.id
     @post_new_image.save
-    redirect_to post_images_path
+    redirect_to post_image_path(@post_new_image.id)
 
   end
 
@@ -17,6 +17,7 @@ class PostImagesController < ApplicationController
   end
 
   def show
+    @show_post_image = PostImage.find(params[:id])
   end
 
   private
