@@ -1,8 +1,14 @@
 <div>
   <%= image_tag @show_post_image.get_image %>
+  
   <p>ショップ名：<%= @show_post_image.shop_name %></p>
   <p>説明：<%= @show_post_image.caption %></p>
+  
   <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
   <p>ユーザーネーム：<%= @show_post_image.user.name %></p>
   <p>投稿日：<%= @show_post_image.created_at.strftime('%Y/%m/%d') %></p>
+  
+  <% if @show_post_image.user == current_user %>
+    <%= link_to "削除", post_image_path(@show_post_image), method: :delete %>
+  <% end %>
 </div>
