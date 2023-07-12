@@ -1,6 +1,7 @@
 <div>
   <h3><%= @show_user.name %></h3>
   <%= image_tag @show_user.get_profile_image(100,100) %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@show_user.id) %></p>
 </div>
 
 <% @user_post_images.each do |post_image| %>
