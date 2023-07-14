@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @show_user = User.find(params[:id])
-    @user_post_images = @show_user.post_images
+    @user_post_images = @show_user.post_images.page(params[:page])
   end
 
   def edit
